@@ -11,12 +11,10 @@ class UserModel(object):
 
 
 class BookModel(object):
-    user_Id = int()
-    title = str()
-    name = str()
-
-    def __init__(self):
-        pass
+    def __init__(self, user_id, title, name):
+        self.user_id = user_id
+        self.title = title
+        self.name = name
 
     def set_name_from_id(self, user_id, users):
         book_user = filter(lambda user: user['id'] is user_id, users)

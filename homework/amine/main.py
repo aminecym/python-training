@@ -10,11 +10,9 @@ def get_content(url):
 def parse(books, users):
     with open('title_author.txt', 'w') as f:
         for book in books:
-            bm = models.BookModel()
-            bm.user_Id = book['userId']
-            bm.title = book['title']
-            bm.name = bm.set_name_from_id(bm.user_Id, users)
-            f.writelines('标题:{},  作者:{}\n'.format(bm.title, bm.name))
+            bm = models.BookModel(book['userId'], book['title'], None)
+            bm.name = bm.set_name_from_id(bm.user_id, users)
+            f.write('标题:{},  作者:{}\n'.format(bm.title, bm.name))
 
 
 def main():
