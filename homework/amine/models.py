@@ -11,15 +11,15 @@ class UserModel(object):
 
 
 class BookModel(object):
-    def __init__(self, user_id, title, name):
+    def __init__(self, user_id, title):
         self.user_id = user_id
         self.title = title
-        self.name = name
+        self.name = None
 
     def set_name_from_id(self, user_id, users):
         book_user = filter(lambda user: user['id'] is user_id, users)
         if book_user:
             self.name = book_user[0]['name']
-            return self.name
         else:
-            return "The book's author is not existed"
+            self.name = "The book's author is not existed"
+        return self.name
