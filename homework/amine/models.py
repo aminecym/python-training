@@ -10,5 +10,3 @@ class BookModel(object):
         book_user = filter(lambda user: user['id'] is user_id, users)
         if book_user:
             self.name = book_user[0]['name']
-        else:
-            self.name = "None"
