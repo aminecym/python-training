@@ -1,5 +1,7 @@
 # coding: utf-8
-import models, requests, json
+import models
+import requests
+import json
 
 
 def get_content(url):
@@ -10,8 +12,8 @@ def get_content(url):
 def parse(books, users):
     with open('title_author.txt', 'w') as f:
         for book in books:
-            bm = models.BookModel(book['userId'], book['title'])
-            bm.name = bm.set_name_from_id(bm.user_id, users)
+            bm = models.BookModel(book['title'])
+            bm.set_name_from_id(book['userId'], users)
             f.write('标题:{},  作者:{}\n'.format(bm.title, bm.name))
 
 
